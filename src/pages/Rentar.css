@@ -1,0 +1,30 @@
+.rentar-container{
+    width: 100%;
+}
+.products-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+    font-size: 14px;
+}
+
+@media(width > 300px){
+    .products-container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.carrito{
+    font-size: 50px;
+}
+
+.carrito:hover{
+    font-size: 60px;
+}
+
+.en-la-troca{
+    background-color: black;
+    color: white;
+    height: 100px;
+}

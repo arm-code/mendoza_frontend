@@ -1,0 +1,42 @@
+:root {
+    --white: #f5f2eb;
+    --green: #04ba71;
+    --black: #04454d;
+    --yellow: #fdc827;
+  }
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+}
+
+th{
+    background-color: var(--black);
+    color: var(--white);
+    padding: 8px;
+    text-align: left;
+    border: var(--black) solid;
+}
+
+td{
+    padding: 8px;
+    border: var(--black) solid;
+}
+
+select{
+    height: 30px;
+}
+
+.total-pagar{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.div-rentando{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    text-align: center;
+}
