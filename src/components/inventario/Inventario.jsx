@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { getDisponibilidad } from "../api/mobiliario.api";
+import { getDisponibilidad } from "../../api/mobiliario.api";
 import { InventarioCard } from "./InventarioCard";
 
 export const Inventario = () => {
@@ -15,7 +15,7 @@ export const Inventario = () => {
   }, []);
 
   return (
-    <div>      
+    <div className="cardsContainer">      
       {disponibilidad.map((disponibilidad) => (
         <InventarioCard
           disponibilidad={disponibilidad}

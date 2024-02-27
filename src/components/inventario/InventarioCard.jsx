@@ -1,4 +1,5 @@
 import React from "react";
+import './InventarioStyles.css'
 
 export const InventarioCard = ({ disponibilidad }) => {
   return (
