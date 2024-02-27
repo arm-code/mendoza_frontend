@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Navegacion from '../components/Navegacion';
 import { getProductos } from '../api/mobiliario.api';
-import ProductoCard from '../components/ProductoCard';
-
+import ProductoCard from '../components/productos/ProductoCard';
 import './Rentar.css';
 import { Troca } from '../components/rentar/Troca';
 
 export const Rentar = () => {
   const [productos, setProductos] = useState([]);
   const [troca, setTroca] = useState([]);
-
-
 
   // cargamos los productos de nuestra API
   useEffect(() => {
@@ -28,7 +25,7 @@ export const Rentar = () => {
     });
 
     if (existingProduct) {
-      //si el producto ya esta en la troca, aumentaos la cantidad
+      //si el producto ya esta en la troca, aumentamos la cantidad
       setTroca((prevTroca) => {
         prevTroca.map((p) =>
           p.id === producto_seleccionado.id

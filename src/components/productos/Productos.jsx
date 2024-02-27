@@ -1,9 +1,13 @@
 import { React, useEffect, useState } from 'react';
-import { getProductos } from '../api/mobiliario.api';
+import { getProductos } from '../../api/mobiliario.api';
 import { ProductoCard } from './ProductoCard';
+import './ProductoStyles.css';
 
 export const Productos = () => {
   const [producto, setProducto] = useState([]);
+  const onAddToTroca = () =>{
+    console.log('agregado a la troca!!')
+  }
 
   useEffect(() => {
     async function loadProductos() {
@@ -14,9 +18,9 @@ export const Productos = () => {
   }, []);
 
   return (
-    <div className='products-container'>
+    <div className='productsContainer'>
       {producto.map((producto) => (
-        <ProductoCard producto={producto} key={producto.id} />
+        <ProductoCard producto={producto} key={producto.id} onAddToTroca={onAddToTroca} details={false}/>
       ))}
     </div>
   );
