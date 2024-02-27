@@ -1,0 +1,48 @@
+.cardRenta {
+  border: 1px solid black;
+  box-shadow: 5px 5px rgba(1, 1, 1, 1);
+  box-sizing: border-box;
+  width: 200px;
+  height: 300px;
+  font-size: 22px;
+}
+
+.partRenta {
+  width: 100%;
+  height: 80%;
+  margin: 0;  
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.partRenta p{
+    margin: 0;
+}
+
+.buttonRentar {
+  width: 100%;
+  height: 20%;
+  border: none;
+  border-top: 1px solid black;
+  background-color: #04454d;
+  color: white;
+  font-size: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.buttonRentar:hover {
+  background-color: white;
+  color: #04454d;
+}
+
+.cost{
+    font-size: 30px;    
+}
+
+.divider{
+    width: 50%;
+}
