@@ -2,8 +2,10 @@ import React, { useId } from 'react';
 import './Troca.css';
 import { FaTruckMonster } from 'react-icons/fa6';
 
-export const Troca = () => {
+export const Troca = ({ inTruck }) => {
   const trocaCheckBoxId = useId();
+  const idproduct = useId();
+  console.log('from truck', inTruck);
 
   return (
     <div className='trocaCart'>
@@ -12,13 +14,15 @@ export const Troca = () => {
       </label>
       <input type='checkbox' hidden id={trocaCheckBoxId} />
 
-      <div className='cart'>        
+      <div className='cart'>
         <h2>Que llevas en la troca</h2>
         <ul className='cartList'>
-          <li>mesa grande - 180</li>
-          <li>mesa grande - 120</li>
-          <li>mesa grande - 150</li>
-          <li>mesa grande - 180</li>
+          {inTruck.map((p, i) => (
+            <div key={i}>
+              <p>{p.product_name}</p>
+              <p>{p.product_cost}</p>
+            </div>
+          ))}
         </ul>
         <hr />
         <p className='textNormal'>Total a pagar:</p>
