@@ -12,6 +12,7 @@
   --red-l: #d4320e;
   --orange-m: #dc7c15;
 }
+
 * {
   font-family: 'Libre Bodoni', serif;
   color: var(--black);
