@@ -2,10 +2,14 @@ import React, { useId } from 'react';
 import './Troca.css';
 import { FaTruckMonster } from 'react-icons/fa6';
 
-export const Troca = ({ inTruck }) => {
+export const Troca = ({ inTruck, deleteTruck }) => {
   const trocaCheckBoxId = useId();
-  const idproduct = useId();
   console.log('from truck', inTruck);
+  let totalCost = 0;
+  inTruck.map((p) => {
+    totalCost += parseInt(p.product_cost);
+  });
+  console.log(totalCost);
 
   return (
     <div className='trocaCart'>
@@ -16,19 +20,21 @@ export const Troca = ({ inTruck }) => {
 
       <div className='cart'>
         <h2>Que llevas en la troca</h2>
-        <ul className='cartList'>
+        <div className='cartList'>
           {inTruck.map((p, i) => (
             <div key={i}>
-              <p>{p.product_name}</p>
-              <p>{p.product_cost}</p>
+              <p className='item'>{p.product_name}</p>
+              <p className='item'>$ {Math.floor(p.product_cost)}</p>
             </div>
           ))}
-        </ul>
-        <hr />
+        </div>
         <p className='textNormal'>Total a pagar:</p>
-        <p className='totalCost'>$650</p>
-        <button className='deleteTrocaButton'>Borrar carga</button>
+        <p className='totalCost'>$ {totalCost}</p>
+
         <button className='goToRentarButton'>Proceder con la renta</button>
+        <button className='deleteTrocaButton' onClick={deleteTruck}>
+          Borrar carga
+        </button>
       </div>
     </div>
   );

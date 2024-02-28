@@ -34,7 +34,8 @@
   width: 50%;  
   display: flex;
   flex-direction: column;  
-  justify-content: center;
+  justify-content: center;  
+  align-items: center;
   gap: 15px;
   border: 5px solid #04454d;
    
@@ -42,16 +43,16 @@
 }
 
 .deleteTrocaButton {
-  height: 50px;
-  width: 100%;
-  font-size: 20px;
+  height: 30px;
+  width: 80%;
+  font-size: 18px;
   font-weight: bolder;
-  background-color: #04454d;
+  background-color: #d4320e;
   color: #f5f2eb;
 }
 
 .goToRentarButton {
-  height: 50px;
+  height: 70px;
   width: 100%;
   font-size: 20px;
   font-weight: bolder;
@@ -60,6 +61,7 @@
 }
 
 .cartList {
+  width: 100%;
   padding: 0;
   margin: 0;
   display: flex;
@@ -70,12 +72,18 @@
 }
 
 .cartList div {
-  height: 30px;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 18px;
+  border-bottom: 1px solid #04454d;
+}
+
+.item{
+  margin: 0;
+  
 }
 
 .totalCost {

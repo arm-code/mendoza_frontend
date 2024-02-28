@@ -4,6 +4,7 @@ import { getProductos } from '../api/mobiliario.api';
 import ProductoRentaCard from '../components/rentar/ProductoRentaCard';
 import './Rentar.css';
 import { Troca } from '../components/rentar/Troca';
+import { Toaster, toast } from 'react-hot-toast';
 
 export const Rentar = () => {
   const [productos, setProductos] = useState([]);
@@ -18,9 +19,14 @@ export const Rentar = () => {
     loadProductos();
   }, []);
 
-  const addToTroca = (p) => {     
-    setTroca([...troca, p]);    
+  const addToTroca = (p) => {
+    setTroca([...troca, p]);
+    toast.success('Subido a la troca!')
   };
+
+  const vaciarTroca = () =>{
+    setTroca([])
+  }
 
   // debido a la asincronia del useState, utilizamos un useEffect para poder mostrar el valor de la troca actualizado, ya que si intentamos imprimir el valor de troca, mostrara lo que tenga ese momento y puede suceder que  aun no se haya procesado el cambio de estado en useState.
   // useEffect(() =>{
@@ -29,8 +35,9 @@ export const Rentar = () => {
 
   return (
     <div className='rentarPage'>
+      <Toaster />
       <h1>RENTAR</h1>
-      <Troca inTruck={troca}/>
+      <Troca inTruck={troca} deleteTruck={() => vaciarTroca()}/>
       <h3>Nuestros productos:</h3>
       <div className='productsRentaContainer'>
         {productos.map((p) => (
