@@ -5,12 +5,8 @@
   position: absolute;
   right: 0px;
   top: 0px;
-  width: 80%;    
-  
-  
+  width: 90%;    
 }
-
-
 
 .cart-button {
   align-items: center;
@@ -31,15 +27,13 @@
 
 
 .cart-button ~ input:checked ~ .cart {  
-  width: 50%;  
+  width: 70%;  
   display: flex;
   flex-direction: column;  
   justify-content: center;  
   align-items: center;
   gap: 15px;
   border: 5px solid #04454d;
-   
-  
 }
 
 .deleteTrocaButton {
@@ -60,30 +54,17 @@
   color: #f5f2eb;
 }
 
-.cartList {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
+.cartList{
+  width: 100%;  
 }
 
-.cartList div {
-  height: auto;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 18px;
-  border-bottom: 1px solid #04454d;
-}
-
-.item{
-  margin: 0;
+.buttons{
   
+}
+
+.deleteItem{
+  background-color: #d4320e;
+  color: #f5f2eb;  
 }
 
 .totalCost {
