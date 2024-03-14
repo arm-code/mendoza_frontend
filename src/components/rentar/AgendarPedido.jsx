@@ -5,29 +5,30 @@ export const AgendarPedido = () => {
     <div className='agendarPedido'>
       <h1>AGENDANDO PEDIDO...</h1>
       <div className='containerForms'>
-        <form action='' className='formAgendar'>
-        <div className='fecha'>
-            <label htmlFor='fechaEntrega'>fecha de entrega</label>
-            <input type="date" id='fechaEntrega' name='fechaEntrega' />
-            
+        <form method='POST' className='formAgendar'>
+          <div className='fecha'>
+            <label htmlFor='fechaEntrega'>Fecha de entrega</label>
+            <input type='date' id='fechaEntrega' name='fechaEntrega' />
           </div>
           <div className='cliente'>
-            <label htmlFor='nombreCliente'>nombre del cliente</label>
-            <input type="text" id='nombreCliente' name='nombreCliente' />
-            <label htmlFor='apellidosCliente'>apellidos</label>
-            <input type="text" id='apellidosCliente' name='apellidosCliente' />
-            <label htmlFor='telefonoCliente'>telefono</label>
-            <input type="text" id='telefonoCliente' name='telefonoCliente' />
+            <label htmlFor='nombreCliente'>Nombre del cliente</label>
+            <input type='text' id='nombreCliente' name='nombreCliente' />
+            <label htmlFor='apellidosCliente'>Apellidos</label>
+            <input type='text' id='apellidosCliente' name='apellidosCliente' />
+            <label htmlFor='telefonoCliente'>Telefono</label>
+            <input type='text' id='telefonoCliente' name='telefonoCliente' />
           </div>
           <div className='direccion'>
-            <label htmlFor='calle'>calle</label>
-            <input type="text" id='calle' name='calle' />
-            <label htmlFor='numero'>numero</label>
-            <input type="text" id='numero' name='numero' />
-            <label htmlFor='colonia'>colonia</label>
-            <input type="text" id='colonia' name='colonia' />
+            <label htmlFor='calle'>Calle</label>
+            <input type='text' id='calle' name='calle' />
+            <label htmlFor='numero'>Numero</label>
+            <input type='text' id='numero' name='numero' />
+            <label htmlFor='colonia'>Colonia</label>
+            <input type='text' id='colonia' name='colonia' />
           </div>
+          <div>
             <button>Continuar</button>
+          </div>
         </form>
       </div>
     </div>

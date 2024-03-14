@@ -7,9 +7,8 @@
 }
 
 .containerForms {
-  width: 90%;
+  width: 100%;
   height: auto;  
-  border: 1px solid black;
 }
 
 .formAgendar div{
@@ -24,4 +23,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.formAgendar div{  
+  width: 100%;
+}
+
+.formAgendar div input, button{
+  width: 100%;
 }
