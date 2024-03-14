@@ -2,14 +2,13 @@ import React, { useEffect, useId } from 'react';
 import './Troca.css';
 import { FaTruckMonster } from 'react-icons/fa6';
 
-export const Troca = ({ inTruck, deleteTruck, deleteItem}) => {
+export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem}) => {
   const trocaCheckBoxId = useId(); 
 
   let totalCost = 0;
   inTruck.map((p) => {
     totalCost += parseInt(p.product_cost*p.quantity);
   });
-
 
   return (
     <div className='trocaCart'>
@@ -48,7 +47,7 @@ export const Troca = ({ inTruck, deleteTruck, deleteItem}) => {
         <p className='textNormal'>Total a pagar:</p>
         <p className='totalCost'>$ {totalCost}</p>
 
-        <button className='goToRentarButton'>Proceder con la renta</button>
+        <button className='goToRentarButton' onClick={agendarPedido}>Proceder con la renta</button>
         <button className='deleteTrocaButton' onClick={deleteTruck}>
           vaciar troca
         </button>

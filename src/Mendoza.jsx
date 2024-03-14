@@ -5,9 +5,7 @@ import { Rentar } from "./pages/Rentar.jsx";
 import { ChecarPedidos } from "./pages/ChecarPedidos.jsx";
 import { MenuPrincipal } from "./pages/MenuPrincipal.jsx";
 import ChecarProductos from "./pages/ChecarProductos.jsx";
-import {DireccionForm} from './components/rentar/DireccionForm.jsx'
-import { ProductsForm } from "./components/rentar/ProductsForm.jsx";
-import { FechaForm } from "./components/rentar/FechaForm.jsx";
+import { AgendarPedido } from "./components/rentar/AgendarPedido.jsx";
 
 export const Mendoza = () => {
   return (
@@ -20,9 +18,8 @@ export const Mendoza = () => {
         <Route path="/disponibilidad" element={<ChecarDisponibilidad />} />
         <Route path="/inventario" element={<ChecarInventario />} />        
         <Route path="/pedidos" element={<ChecarPedidos />} />
-        <Route path="/direccionform" element={<DireccionForm />} />
-        <Route path="/productsform" element={<ProductsForm />} />
-        <Route path="/fechaform" element={<FechaForm />} />
+        <Route path="/agendarPedido" element={<AgendarPedido/>}/>               
+        
       </Routes>
     </BrowserRouter>
   );

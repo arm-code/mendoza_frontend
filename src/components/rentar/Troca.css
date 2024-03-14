@@ -44,6 +44,10 @@
   background-color: #d4320e;
   color: #f5f2eb;
 }
+.deleteTrocaButton:hover,.deleteItem:hover{
+  background-color: #f5f2eb;
+  color: #d4320e;
+}
 
 .goToRentarButton {
   height: 70px;
@@ -54,13 +58,16 @@
   color: #f5f2eb;
 }
 
+.goToRentarButton:hover{
+  background-color: #f5f2eb;
+  color: #04454d;
+}
+
 .cartList{
   width: 100%;  
 }
 
-.buttons{
-  
-}
+
 
 .deleteItem{
   background-color: #d4320e;
