@@ -2,12 +2,12 @@ import React, { useEffect, useId } from 'react';
 import './Troca.css';
 import { FaTruckMonster } from 'react-icons/fa6';
 
-export const Troca = ({ inTruck, deleteTruck }) => {
+export const Troca = ({ inTruck, deleteTruck, deleteItem}) => {
   const trocaCheckBoxId = useId(); 
 
   let totalCost = 0;
   inTruck.map((p) => {
-    totalCost += parseInt(p.product_cost);
+    totalCost += parseInt(p.product_cost*p.quantity);
   });
 
 
@@ -39,7 +39,7 @@ export const Troca = ({ inTruck, deleteTruck }) => {
                 <td>$ {Math.floor(p.product_cost)}</td>
                 <td>{Math.floor(p.product_cost * p.quantity)}</td>
                 <td className='buttons'>
-                  <button className='deleteItem'>quitar</button>
+                  <button className='deleteItem' onClick={() => deleteItem(p.id)} >quitar</button>
                 </td>
               </tr>
             ))}
