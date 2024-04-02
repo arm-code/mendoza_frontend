@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navegacion from '../components/Navegacion';
 import { getProductos } from '../api/mobiliario.api';
 import ProductoRentaCard from '../components/rentar/ProductoRentaCard';
 import './Rentar.css';
 import { Troca } from '../components/rentar/Troca';
-import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useTruck } from '../hooks/useTruck.js';
 
 export const Rentar = () => {
   const [productos, setProductos] = useState([]);
-  const [troca, setTroca] = useState([]);
   const navigate = useNavigate();
+  const { troca, addToTroca, vaciarTroca, deleteItem, Toaster } = useTruck();
 
   // cargamos los productos de nuestra API
   useEffect(() => {
@@ -21,39 +21,9 @@ export const Rentar = () => {
     loadProductos();
   }, []);
 
-  const addToTroca = (p) => {
-    const productInCartIndex = troca.findIndex((item) => item.id === p.id);
-    if (productInCartIndex >= 0) {
-      const newCart = structuredClone(troca);
-      newCart[productInCartIndex].quantity += 1;
-      toast.success('Subido a la troca!');
-      return setTroca(newCart);
-    }
-
-    setTroca((prevState) => [
-      ...prevState,
-      {
-        ...p,
-        quantity: 1,
-      },
-    ]);
-
-    toast.success('Subido a la troca!');
-  };
-
-  const vaciarTroca = () => {
-    setTroca([]);
-  };
-
-  const deleteItem = (idForDelete) => {
-    const newTroca = troca.filter((p) => p.id !== idForDelete);
-    console.log('se ha presionado quitar', idForDelete);
-    setTroca(newTroca);
-  };
-
   const agendarPedido = () => {
     console.log('agendando pedido!!');
-    navigate('/agendarPedido')
+    navigate('/agendarPedido');
   };
 
   // debido a la asincronia del useState, utilizamos un useEffect para poder mostrar el valor de la troca actualizado, ya que si intentamos imprimir el valor de troca, mostrara lo que tenga ese momento y puede suceder que  aun no se haya procesado el cambio de estado en useState.
