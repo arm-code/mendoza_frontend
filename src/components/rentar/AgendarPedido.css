@@ -23,25 +23,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-}
-
-.formAgendar input, button{
-  height: 28px;
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-=======
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
 }
 
 .formAgendar div{  
-  width: 100%;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 5px;
+  background-color: white;
 }
 
-.formAgendar div input, button{
+.formAgendar div input, button, label{
+    
+  height: 32px;
   width: 100%;
->>>>>>> 09a7287bef6f6a87d448ef50c9df3390f4948d32
+  font-size: 22px;
+  text-align: center;
+}
+
+.formAgendar button{
+  height: 36px;
+
 }
