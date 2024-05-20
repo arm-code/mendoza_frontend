@@ -1,55 +1,60 @@
 import React, { useEffect, useId } from 'react';
 import './Troca.css';
-import { FaTruckMonster } from 'react-icons/fa6';
 
-export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem}) => {
-  const trocaCheckBoxId = useId(); 
-
+export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem }) => {
   let totalCost = 0;
   inTruck.map((p) => {
-    totalCost += parseInt(p.product_cost*p.quantity);
+    totalCost += parseInt(p.product_cost * p.quantity);
   });
 
   return (
     <div className='trocaCart'>
-      <label htmlFor={trocaCheckBoxId} className='cart-button'>
-        <FaTruckMonster />
-      </label>
-      <input type='checkbox' hidden id={trocaCheckBoxId} />
-
-      <div className='cart'>
-        <h2>Que llevas en la troca</h2>
-
-        <table className='cartList'>
-          <thead>
-            <tr>
-              <th>descripcion</th>
-              <th>cantidad</th>
-              <th>costo</th>
-              <th>monto</th>
-              <th>opciones</th>
+      <table className='cartList'>
+        <thead>
+          <tr>
+            <th>Descripcion</th>
+            <th>Cantidad</th>
+            <th>Costo</th>
+            <th>Monto</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {inTruck.map((p, i) => (
+            <tr key={i}>
+              <td>{p.product_name}</td>
+              <td>{p.quantity}</td>
+              <td>$ {Math.floor(p.product_cost)}</td>
+              <td>$ {Math.floor(p.product_cost * p.quantity)}</td>
+              <td className='buttons'>
+                <button
+                  className='deleteItem'
+                  title='Eliminar producto'
+                  onClick={() => deleteItem(p.id)}
+                >
+                  ✖
+                </button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {inTruck.map((p, i) => (
-              <tr key={i}>
-                <td>{p.product_name}</td>
-                <td>{p.quantity}</td>
-                <td>$ {Math.floor(p.product_cost)}</td>
-                <td>{Math.floor(p.product_cost * p.quantity)}</td>
-                <td className='buttons'>
-                  <button className='deleteItem' onClick={() => deleteItem(p.id)} >quitar</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <p className='textNormal'>Total a pagar:</p>
-        <p className='totalCost'>$ {totalCost}</p>
-
-        <button className='goToRentarButton' onClick={agendarPedido}>Proceder con la renta</button>
-        <button className='deleteTrocaButton' onClick={deleteTruck}>
-          vaciar troca
+          ))}
+        </tbody>
+      </table>
+      <p className='textNormal'>Total a pagar: $ {totalCost}</p>
+      <div className='buttons-container'>
+        <button
+          className='goToRentarButton'
+          disabled={inTruck.length == 0 ? true : false}
+          onClick={agendarPedido}
+        >
+          Proceder con la renta
+        </button>
+        <button
+          className='deleteTrocaButton'
+          disabled={inTruck.length == 0 ? true : false}
+          title='Eliminar todos los productos de la troca'
+          onClick={deleteTruck}
+        >
+          Vaciar troca
         </button>
       </div>
     </div>

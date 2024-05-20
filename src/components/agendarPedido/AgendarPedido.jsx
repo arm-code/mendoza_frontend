@@ -9,14 +9,14 @@ export const AgendarPedido = () => {
   const { setClient } = useClient();
 
   const onSubmit = (data) => {
-    setClient(data);
+    setClient(data);    
     console.log('procediendo con la orden de compra...');
     navigate('/ordenDeCompra');
   };
 
   return (
     <div className='agendarPedido'>
-      <h1>AGENDANDO PEDIDO...</h1>
+      <h3>AGENDANDO PEDIDO...</h3>
       <div className='containerForms'>
         <form onSubmit={handleSubmit(onSubmit)} className='formAgendar'>
           <div className='fecha'>
@@ -80,7 +80,7 @@ export const AgendarPedido = () => {
               {...register('colonia')}
             />
           </div>
-          <div>
+          <div className='button-continuar'>
             <button type='submit'>Continuar</button>
           </div>
         </form>

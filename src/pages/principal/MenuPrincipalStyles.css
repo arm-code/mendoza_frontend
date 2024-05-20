@@ -1,0 +1,32 @@
+.menu-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;     
+    text-align: left;    
+}
+
+.menu-principal div h1 {
+    font-size: 58px;
+    font-weight: bold;
+}
+
+.menu-principal div h2 {
+    font-size: 48px;
+}
+
+.menu-principal button{
+    background-color: #04454d;
+    height: 50px;        
+    color: white;
+    margin-bottom: 15px;
+}
+
+.menu-principal button:hover{
+    background-color: white;
+    height: 50px;        
+    color: #04454d;
+    margin-bottom: 15px;
+    cursor: pointer;
+}

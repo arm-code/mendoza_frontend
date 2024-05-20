@@ -1,0 +1,49 @@
+:root {
+  --white: #f5f2eb;
+  --green: #04ba71;
+  --black: #04454d;
+  --yellow: #fdc827;
+}
+
+.rentarPage {
+  width: 100%;
+  padding-top: 150px;
+  display: flex;
+}
+
+.products {
+  width: 60%;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: baseline;
+  gap: 15px;
+}
+
+.truck {
+  width: 40%;
+  padding: 15px;
+  position: fixed;
+  right: 0;
+  background-color: #f5f2eb;
+  height: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: var(--black);
+  color: var(--white);
+  text-align: left;
+  border: var(--black) solid 1px;
+  
+}
+
+td {
+  border: var(--black) solid 1px;  
+  padding: 0;
+}

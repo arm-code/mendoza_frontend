@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import Navegacion from '../components/Navegacion';
-import { getProductos } from '../api/mobiliario.api';
-import ProductoRentaCard from '../components/rentar/ProductoRentaCard';
+import Navegacion from '../../components/Navegacion.jsx';
+import { getProductos } from '../../api/mobiliario.api.js';
+import ProductoRentaCard from '../../components/rentar/ProductoRentaCard.jsx';
 import './Rentar.css';
-import { Troca } from '../components/rentar/Troca';
+import { Troca } from '../../components/rentar/Troca.jsx';
 import { useNavigate } from 'react-router-dom';
-import { useTruck } from '../hooks/useTruck.js';
+import { useTruck } from '../../hooks/useTruck.js';
 
 export const Rentar = () => {
   const [productos, setProductos] = useState([]);
@@ -29,17 +29,7 @@ export const Rentar = () => {
   return (
     <div className='rentarPage'>
       <Toaster />
-      <h1>RENTAR</h1>
-
-      <Troca
-        inTruck={troca}
-        deleteTruck={() => vaciarTroca()}
-        deleteItem={deleteItem}
-        agendarPedido={agendarPedido}
-      />
-
-      <h3>Nuestros productos:</h3>
-      <div className='productsRentaContainer'>
+      <div className='products'>
         {productos.map((p) => (
           <ProductoRentaCard
             producto={p}
@@ -48,7 +38,14 @@ export const Rentar = () => {
           />
         ))}
       </div>
-      <Navegacion />
+      <div className='truck'>
+        <Troca
+          inTruck={troca}
+          deleteTruck={() => vaciarTroca()}
+          deleteItem={deleteItem}
+          agendarPedido={agendarPedido}
+        />
+      </div>
     </div>
   );
 };

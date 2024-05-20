@@ -1,0 +1,30 @@
+.orden-compra{
+    width: 100%;
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.orden-compra .orden{
+    padding: 0 50px ;    
+    background-color: #f5f2eb;
+}
+
+.dataclient-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;    
+}
+
+.dataclient-container div{
+    width: 100%;
+    border-bottom: 1px solid;
+}
+
+.confirmar-renta{
+    margin-top: 15px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 28px;
+    font-size: 22px;
+}

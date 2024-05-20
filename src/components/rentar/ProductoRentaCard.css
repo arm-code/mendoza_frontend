@@ -5,6 +5,7 @@
   width: 200px;
   height: 300px;
   font-size: 22px;
+  text-align: center;
 }
 
 .partRenta {
@@ -35,7 +36,7 @@
 }
 
 .buttonRentar:hover {
-  background-color: white;
+  background-color: #f5f2eb;
   color: #04454d;
 }
 

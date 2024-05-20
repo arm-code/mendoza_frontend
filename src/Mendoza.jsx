@@ -1,20 +1,22 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ChecarDisponibilidad } from './pages/ChecarDisponibilidad.jsx';
 import { ChecarInventario } from './pages/ChecarInventario.jsx';
-import { Rentar } from './pages/Rentar.jsx';
+import { Rentar } from './pages/rentar/Rentar.jsx';
 import { ChecarPedidos } from './pages/ChecarPedidos.jsx';
-import { MenuPrincipal } from './pages/MenuPrincipal.jsx';
-import ChecarProductos from './pages/ChecarProductos.jsx';
-import { AgendarPedido } from './components/rentar/AgendarPedido.jsx';
+import { MenuPrincipal } from './pages/principal/MenuPrincipal.jsx';
+import ChecarProductos from './pages/productos/ChecarProductos.jsx';
+import { AgendarPedido } from './components/agendarPedido/AgendarPedido.jsx';
 import { TruckProvider } from './context/TruckProvider.jsx';
-import { OrdenRenta } from './components/rentar/OrdenRenta.jsx';
+import { OrdenRenta } from './components/ordenCompra/OrdenRenta.jsx';
 import { ClientProvider } from './context/ClientProvider.jsx';
+import { NavBar } from './components/navbar/NavBar.jsx';
 
 export const Mendoza = () => {
   return (
     <TruckProvider>
       <ClientProvider>
         <BrowserRouter>
+        <NavBar/>
           <Routes>
             <Route path='/' element={<Navigate to='/principal' />} />
             <Route path='/principal' element={<MenuPrincipal />} />

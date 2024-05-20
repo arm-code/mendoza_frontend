@@ -1,0 +1,29 @@
+.navbar{
+    background-color: #04454d;
+    width: 100%;    
+    height: 150px;
+    position: fixed;
+    z-index: 1;
+}
+
+.navbar ul{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+}
+
+.navbar ul > * {
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+}
+
+.navbar ul > *:hover {
+    color: white;
+    font-size: 28px;
+    text-decoration: underline;
+}
