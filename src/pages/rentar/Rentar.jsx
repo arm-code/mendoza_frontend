@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react';
-import Navegacion from '../../components/Navegacion.jsx';
 import { getProductos } from '../../api/mobiliario.api.js';
 import ProductoRentaCard from '../../components/rentar/ProductoRentaCard.jsx';
 import './Rentar.css';
 import { Troca } from '../../components/rentar/Troca.jsx';
 import { useNavigate } from 'react-router-dom';
 import { useTruck } from '../../hooks/useTruck.js';
+import { useClient } from '../../hooks/useClient.js';
 
 export const Rentar = () => {
   const [productos, setProductos] = useState([]);
   const navigate = useNavigate();
+  const {client} = useClient()
   const { troca, addToTroca, vaciarTroca, deleteItem, Toaster } = useTruck();
+
+
+  console.log('client from rentar:', client)
+  console.log('troca: ', troca)
 
   // cargamos los productos de nuestra API
   useEffect(() => {
@@ -23,7 +28,8 @@ export const Rentar = () => {
 
   const agendarPedido = () => {
     console.log('agendando pedido!!');
-    navigate('/agendarPedido');
+
+    navigate('/ordenDeCompra');
   };
 
   return (
@@ -39,6 +45,7 @@ export const Rentar = () => {
         ))}
       </div>
       <div className='truck'>
+        <p>Cliente: {client.nombreCliente} {client.apellidosCliente}</p>
         <Troca
           inTruck={troca}
           deleteTruck={() => vaciarTroca()}

@@ -9,7 +9,7 @@ export const getProductos = () => {
 };
 
 export const createClient = (client) => {
-  return axios.post('http://localhost:8000/mobiliario/api/v1/clients/', client);
+  return axios.post('http://localhost:8000/mobiliario/api/v1/customers/', client);
 };
 
 export const createAddress = (address) => {
@@ -23,16 +23,20 @@ export const createCart = (cart) => {
   return axios.post('http://localhost:8000/mobiliario/api/v1/cart/', cart);
 };
 
-export const createPurchaseOrder = (order) => {
+export const createItems = (items) => {
+  return axios.post('http://localhost:8000/mobiliario/api/v1/cart-items/', items);
+};
+
+export const createOrder = (order) => {
   return axios.post(
-    'http://localhost:8000/mobiliario/api/v1/purchase-order/',
+    'http://localhost:8000/mobiliario/api/v1/order/',
     order
   );
 };
 
-export const createDetailedOrder = (detailed) => {
+export const createOrderDetailed = (detailed) => {
   return axios.post(
-    'http://localhost:8000/mobiliario/api/v1/detailed-order/',
+    'http://localhost:8000/mobiliario/api/v1/order-detailed/',
     detailed
   );
 };

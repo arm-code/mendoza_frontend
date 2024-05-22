@@ -1,5 +1,7 @@
 export const convertirFecha = (fecha) => {
-  const fechaObj = new Date(fecha);
+
+
+  const fechaObj = new Date(fecha.replace('-', '/'));
 
   // Obtener el nombre del día de la semana en español
   const opcionesDiaSemana = { weekday: 'long' };

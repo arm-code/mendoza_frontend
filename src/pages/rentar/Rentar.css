@@ -30,6 +30,11 @@
   height: 100%;
 }
 
+.truck p{        
+    margin: 0;
+    font-size: 12px;    
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -38,7 +43,7 @@ table {
 th {
   background-color: var(--black);
   color: var(--white);
-  text-align: left;
+  text-align: center;
   border: var(--black) solid 1px;
   
 }
@@ -46,4 +51,6 @@ th {
 td {
   border: var(--black) solid 1px;  
   padding: 0;
+  text-align: center;
 }
+

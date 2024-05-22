@@ -9,7 +9,7 @@ export const NavBar = () => {
         <Link to={'/disponibilidad'}>Checar Disponibilidad</Link>
         <Link to={'/pedidos'}>Checar Pedidos</Link>
         <Link to={'/inventario'}>Checar Inventario</Link>
-        <Link to={'/rentar'}>Rentar</Link>
+        <Link to={'/registrarCliente'}>Rentar</Link>
       </ul>
     </nav>
   );

@@ -5,7 +5,7 @@ import { Rentar } from './pages/rentar/Rentar.jsx';
 import { ChecarPedidos } from './pages/ChecarPedidos.jsx';
 import { MenuPrincipal } from './pages/principal/MenuPrincipal.jsx';
 import ChecarProductos from './pages/productos/ChecarProductos.jsx';
-import { AgendarPedido } from './components/agendarPedido/AgendarPedido.jsx';
+import { RegistrarCliente } from './components/RegistrarCliente/RegistrarCliente.jsx';
 import { TruckProvider } from './context/TruckProvider.jsx';
 import { OrdenRenta } from './components/ordenCompra/OrdenRenta.jsx';
 import { ClientProvider } from './context/ClientProvider.jsx';
@@ -25,7 +25,7 @@ export const Mendoza = () => {
             <Route path='/disponibilidad' element={<ChecarDisponibilidad />} />
             <Route path='/inventario' element={<ChecarInventario />} />
             <Route path='/pedidos' element={<ChecarPedidos />} />
-            <Route path='/agendarPedido' element={<AgendarPedido />} />
+            <Route path='/registrarCliente' element={<RegistrarCliente />} />
             <Route path='/ordenDeCompra' element={<OrdenRenta />} />
           </Routes>
         </BrowserRouter>

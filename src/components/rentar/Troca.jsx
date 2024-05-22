@@ -4,7 +4,7 @@ import './Troca.css';
 export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem }) => {
   let totalCost = 0;
   inTruck.map((p) => {
-    totalCost += parseInt(p.product_cost * p.quantity);
+    totalCost += parseInt(p.price * p.quantity);
   });
 
   return (
@@ -22,10 +22,10 @@ export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem }) => {
         <tbody>
           {inTruck.map((p, i) => (
             <tr key={i}>
-              <td>{p.product_name}</td>
+              <td>{p.name}</td>
               <td>{p.quantity}</td>
-              <td>$ {Math.floor(p.product_cost)}</td>
-              <td>$ {Math.floor(p.product_cost * p.quantity)}</td>
+              <td>$ {Math.floor(p.price)}</td>
+              <td>$ {Math.floor(p.price * p.quantity)}</td>
               <td className='buttons'>
                 <button
                   className='deleteItem'
@@ -39,7 +39,7 @@ export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem }) => {
           ))}
         </tbody>
       </table>
-      <p className='textNormal'>Total a pagar: $ {totalCost}</p>
+      <p className='totalCost'>Total a pagar: $ {totalCost}</p>
       <div className='buttons-container'>
         <button
           className='goToRentarButton'

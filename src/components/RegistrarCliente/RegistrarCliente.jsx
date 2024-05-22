@@ -1,22 +1,48 @@
-import './AgendarPedido.css';
+import './RegistrarCliente.css';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useClient } from '../../hooks/useClient';
+import { createAddress, createClient, createCart } from '../../api/mobiliario.api';
 
-export const AgendarPedido = () => {
+export const RegistrarCliente = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const { setClient } = useClient();
 
-  const onSubmit = (data) => {
-    setClient(data);    
-    console.log('procediendo con la orden de compra...');
-    navigate('/ordenDeCompra');
+  const onSubmit = async (data) => {
+
+    const [idCustomer, idAddress] = await postClient(data)
+    data.idCustomer = idCustomer
+    data.idAddress = idAddress
+    setClient(data);
+    navigate('/rentar');
+  };
+
+  const postClient = async (dataClient) => {
+
+    const responseClient = await createClient({
+      name: dataClient.nombreCliente,
+      last_name: dataClient.apellidosCliente,
+      phone: dataClient.telefonoCliente      
+    });
+
+      const responseAddress = await createAddress({
+      street: dataClient.calle,
+      colony: dataClient.colonia,
+      number: dataClient.numeroCalle,
+      customer: responseClient.data.id      
+    });        
+
+
+
+    return [responseClient.data.id, responseAddress.data.id]
   };
 
   return (
     <div className='agendarPedido'>
-      <h3>AGENDANDO PEDIDO...</h3>
+      <div className='container-information'>
+        <h3>Primero vamos a registrar los datos del cliente...</h3>
+      </div>
       <div className='containerForms'>
         <form onSubmit={handleSubmit(onSubmit)} className='formAgendar'>
           <div className='fecha'>
