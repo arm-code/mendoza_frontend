@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ChecarDisponibilidad } from './pages/ChecarDisponibilidad.jsx';
 import { ChecarInventario } from './pages/ChecarInventario.jsx';
 import { Rentar } from './pages/rentar/Rentar.jsx';
-import { ChecarPedidos } from './pages/ChecarPedidos.jsx';
+import { ChecarPedidos } from './pages/pedidos/ChecarPedidos.jsx';
 import { MenuPrincipal } from './pages/principal/MenuPrincipal.jsx';
 import ChecarProductos from './pages/productos/ChecarProductos.jsx';
 import { RegistrarCliente } from './components/RegistrarCliente/RegistrarCliente.jsx';
