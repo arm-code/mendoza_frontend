@@ -2,7 +2,7 @@ import './RegistrarCliente.css';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useClient } from '../../hooks/useClient';
-import { createAddress, createClient, createCart } from '../../api/mobiliario.api';
+import { createAddress, createClient } from '../../api/mobiliario.api';
 
 export const RegistrarCliente = () => {
   const { register, handleSubmit } = useForm();
@@ -32,9 +32,6 @@ export const RegistrarCliente = () => {
       number: dataClient.numeroCalle,
       customer: responseClient.data.id      
     });        
-
-
-
     return [responseClient.data.id, responseAddress.data.id]
   };
 

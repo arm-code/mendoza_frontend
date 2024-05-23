@@ -2,17 +2,14 @@
 import { useTruck } from '../../hooks/useTruck';
 import './OrdenRenta.css';
 import { useClient } from '../../hooks/useClient';
-import { convertirFecha } from '../../utils/date-formatter/dateFormater';
+import { dateFormater } from '../../utils/date-formatter/dateFormater';
 import { useNavigate } from 'react-router-dom';
 import { createOrder, createOrderDetailed } from '../../api/mobiliario.api';
 
 export const OrdenRenta = () => {
-  const { troca } = useTruck();
-  const { client } = useClient();
-  const navigate = useNavigate();
-
-  console.log('CLIENT: ', client);
-  console.log('TRUCK: ', troca);
+  const { troca, vaciarTroca } = useTruck();
+  const { client, setClient } = useClient();
+  const navigate = useNavigate();  
 
   let totalCost = 0;
 
@@ -20,8 +17,7 @@ export const OrdenRenta = () => {
     totalCost += parseInt(p.price * p.quantity);
   });
 
-  const onConfirmarRenta = async () => {
-    console.log('confirmando renta!!');
+  const onConfirmarRenta = async () => {    
     try {
       const response = await createOrder({
         total: totalCost,
@@ -38,9 +34,10 @@ export const OrdenRenta = () => {
           product: troca[i].id,
         });
       }
-      alert('Orden generada correctamente!! alv')
-      
-      navigate('/');
+      alert('Orden generada correctamente!!')
+      setClient([0])
+      vaciarTroca()
+      navigate('/pedidos');
     } catch {
       console.log('Algo salio mal al comunicarse con el servidor.. sptm');
     }
@@ -49,7 +46,7 @@ export const OrdenRenta = () => {
   return (
     <div className='orden-compra'>
       <div className='orden'>
-        <h3>Orden de compra</h3>
+        <h3>Orden generada</h3>
         <table className='cartList'>
           <thead>
             <tr>
@@ -75,7 +72,7 @@ export const OrdenRenta = () => {
             <p>Total a pagar: ${totalCost}</p>
           </div>
           <div className='fecha-entrega'>
-            <p>Fecha de entrega: {convertirFecha(client.fechaEntrega)}</p>
+            <p>Fecha de entrega: {dateFormater(client.fechaEntrega)}</p>
           </div>
           <div className='datos-cliente'>
             <p>

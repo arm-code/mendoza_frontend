@@ -19,14 +19,6 @@ export const createAddress = (address) => {
   );
 };
 
-export const createCart = (cart) => {
-  return axios.post('http://localhost:8000/mobiliario/api/v1/cart/', cart);
-};
-
-export const createItems = (items) => {
-  return axios.post('http://localhost:8000/mobiliario/api/v1/cart-items/', items);
-};
-
 export const createOrder = (order) => {
   return axios.post(
     'http://localhost:8000/mobiliario/api/v1/order/',
@@ -40,3 +32,7 @@ export const createOrderDetailed = (detailed) => {
     detailed
   );
 };
+
+export const getOrder = () =>{
+  return axios.get('http://localhost:8000/mobiliario/api/v1/order-check/')
+}

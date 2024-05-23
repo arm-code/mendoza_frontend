@@ -1,4 +1,4 @@
-export const convertirFecha = (fecha) => {
+export const dateFormater = (fecha) => {
 
 
   const fechaObj = new Date(fecha.replace('-', '/'));
