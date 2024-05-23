@@ -10,6 +10,7 @@ import { TruckProvider } from './context/TruckProvider.jsx';
 import { OrdenRenta } from './components/ordenCompra/OrdenRenta.jsx';
 import { ClientProvider } from './context/ClientProvider.jsx';
 import { NavBar } from './components/navbar/NavBar.jsx';
+import { PedidoDetail } from './components/pedidoDetailed/PedidoDetail.jsx';
 
 export const Mendoza = () => {
   return (
@@ -27,6 +28,7 @@ export const Mendoza = () => {
             <Route path='/pedidos' element={<ChecarPedidos />} />
             <Route path='/registrarCliente' element={<RegistrarCliente />} />
             <Route path='/ordenDeCompra' element={<OrdenRenta />} />
+            <Route path='/pedido-detalles' element={<PedidoDetail />} />
           </Routes>
         </BrowserRouter>
       </ClientProvider>

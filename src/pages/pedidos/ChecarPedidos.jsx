@@ -9,7 +9,8 @@ export const ChecarPedidos = () => {
   useEffect(() => {
     async function loadOrder() {
       const resp = await getOrder();
-      setPedidos(resp.data);
+      const sortedOrders = resp.data.sort((a, b) => b.id - a.id);
+      setPedidos(sortedOrders);
     }
 
     loadOrder();
