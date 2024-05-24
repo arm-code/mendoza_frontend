@@ -10,7 +10,13 @@
   --yellow-m: #fbc326;
   --blue-l: #1d7d9e;
   --red-l: #d4320e;
-  --orange-m: #dc7c15;
+  --orange-m: #dc7c15; 
+
+  --generated: #9E9E9E ; /* Generada:  (Gris)*/
+  --inprogress: #FFB74D ; /* En proceso:  (Naranja) */
+  --delivered: #4CAF50 ; /* Entregada:  (Verde) */
+  --completed: #04ffd5 ; /* Completada:  (Azul grisáceo) */
+  --canceled: #F44336 ; /* Cancelada:  (Rojo) */
 }
 
 #root{

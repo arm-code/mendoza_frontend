@@ -1,6 +1,5 @@
 import './PedidoCard.css';
 import { dateFormater } from '../../utils/date-formatter/dateFormater.js';
-import { Navigate, useNavigate } from 'react-router-dom';
 import { PedidoDetail } from '../pedidoDetailed/PedidoDetail.jsx';
 import { useState } from 'react';
 
@@ -11,14 +10,24 @@ export const PedidoCard = ({ pedido }) => {
     setShowDetails(true);
   };
 
+  console.log('pedido from pedido card: ', pedido);
+
+  const statusClasses = {
+    Generada: 'generated',
+    Completada: 'completed',
+    Cancelada: 'cancelada',
+    EnProceso: 'enproceso',
+    Entregada: 'entregada',
+  };
+
+  const defaultClass = 'generated';
+
   return (
     <div className='card-pedido'>
       <div className='cardID'>
         <p>N. Orden</p>
         <p>{pedido.id}</p>
-        
-        
-        </div>
+      </div>
       <div className='customerDetails'>
         <p>
           Direccion: {pedido.address.street}, {pedido.address.number},{' '}
@@ -36,8 +45,8 @@ export const PedidoCard = ({ pedido }) => {
         <p>$ {pedido.total}</p>
       </div>
       <div className='mesasDetails'>
-        <div className='statusOrder'>
-          <p>Status: pendiente</p>
+        <div className={statusClasses[pedido.status] || defaultClass}>
+          <p>Status: {pedido.status}</p>
         </div>
         <div>
           <button onClick={onMostrarDetallado}>Mostrar detallado</button>

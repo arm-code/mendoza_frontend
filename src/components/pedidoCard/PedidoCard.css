@@ -2,8 +2,7 @@
     width: 80%;
     height: 100px;
     border: 1px solid var(--black); 
-    display: flex;
-     
+    display: flex;    
 }
 
 .cardID{
@@ -58,4 +57,27 @@
     border-bottom: 1px solid;
 }
 
+.generated {
+    border: 1px solid;
+    background-color: var(--generated);
+}
 
+.completed {
+    border: 1px solid;
+    background-color: var(--completed);
+}
+
+.cancelada {
+    border: 1px solid;
+    background-color: var(--canceled);
+}
+
+.entregada {
+    border: 1px solid;
+    background-color: var(--delivered);
+}
+
+.enproceso {
+    border: 1px solid;
+    background-color: var(--inprogress);
+}

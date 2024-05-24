@@ -1,7 +1,18 @@
+import { useEffect, useState } from 'react';
 import './PedidoDetail.css';
 
 export const PedidoDetail = ({ pedido, setShowDetails }) => {
   const { order_details } = pedido;
+  const [pack, setPack] = useState([])
+
+  useEffect(() => {
+    async function loadPacks(){
+
+    }
+
+    loadPacks()
+  }, [])
+
 
   console.log('order: ', order_details);
   return (
