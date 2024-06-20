@@ -9,7 +9,7 @@ import { createOrder, createOrderDetailed } from '../../api/mobiliario.api';
 export const OrdenRenta = () => {
   const { troca, vaciarTroca } = useTruck();
   const { client, setClient } = useClient();
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
 
   let totalCost = 0;
 
@@ -17,7 +17,7 @@ export const OrdenRenta = () => {
     totalCost += parseInt(p.price * p.quantity);
   });
 
-  const onConfirmarRenta = async () => {    
+  const onConfirmarRenta = async () => {
     try {
       const response = await createOrder({
         total: totalCost,
@@ -34,9 +34,9 @@ export const OrdenRenta = () => {
           product: troca[i].id,
         });
       }
-      alert('Orden generada correctamente!!')
-      setClient([0])
-      vaciarTroca()
+      alert('Orden generada correctamente!!');
+      setClient([0]);
+      vaciarTroca();
       navigate('/pedidos');
     } catch {
       console.log('Algo salio mal al comunicarse con el servidor.. sptm');
@@ -46,7 +46,8 @@ export const OrdenRenta = () => {
   return (
     <div className='orden-compra'>
       <div className='orden'>
-        <h3>Orden generada</h3>
+        <h2>Se ha generado la siguiente orden...</h2>
+        <h3>Presione confirmar renta para terminar.</h3>
         <table className='cartList'>
           <thead>
             <tr>
@@ -67,22 +68,25 @@ export const OrdenRenta = () => {
             ))}
           </tbody>
         </table>
+
         <div className='dataclient-container'>
           <div className='total-cost'>
-            <p>Total a pagar: ${totalCost}</p>
+            <h3>Total a pagar: ${totalCost}</h3>
           </div>
           <div className='fecha-entrega'>
-            <p>Fecha de entrega: {dateFormater(client.fechaEntrega)}</p>
+            <h3>Fecha de entrega: {dateFormater(client.fechaEntrega)}</h3>
           </div>
           <div className='datos-cliente'>
+            <h3>
+              Direccion: {client.calle} {client.numeroCalle}, {client.colonia}{' '}
+            </h3>
+            <p>Telefono: {client.telefonoCliente}</p>
             <p>
               Cliente: {client.nombreCliente.toUpperCase()}{' '}
               {client.apellidosCliente.toUpperCase()}
             </p>
-            <p>
-              Direccion: {client.calle} {client.numeroCalle}, {client.colonia}{' '}
-            </p>
-            <p>Telefono: {client.telefonoCliente}</p>
+
+            
           </div>
         </div>
 

@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ChecarDisponibilidad } from './pages/ChecarDisponibilidad.jsx';
-import { ChecarInventario } from './pages/ChecarInventario.jsx';
 import { Rentar } from './pages/rentar/Rentar.jsx';
 import { ChecarPedidos } from './pages/pedidos/ChecarPedidos.jsx';
 import { MenuPrincipal } from './pages/principal/MenuPrincipal.jsx';
@@ -11,6 +10,7 @@ import { OrdenRenta } from './components/ordenCompra/OrdenRenta.jsx';
 import { ClientProvider } from './context/ClientProvider.jsx';
 import { NavBar } from './components/navbar/NavBar.jsx';
 import { PedidoDetail } from './components/pedidoDetailed/PedidoDetail.jsx';
+import { ChecarInventario } from './pages/inventario/ChecarInventario.jsx';
 
 export const Mendoza = () => {
   return (

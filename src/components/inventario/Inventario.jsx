@@ -1,6 +1,6 @@
-import { React, useEffect, useState } from "react";
-import { getDisponibilidad } from "../../api/mobiliario.api";
-import { InventarioCard } from "./InventarioCard";
+import { React, useEffect, useState } from 'react';
+import { getDisponibilidad } from '../../api/mobiliario.api';
+import { InventarioCard } from './InventarioCard';
 
 export const Inventario = () => {
   const [disponibilidad, setDisponibilidad] = useState([]);
@@ -15,13 +15,17 @@ export const Inventario = () => {
   }, []);
 
   return (
-    <div className="cardsContainer">      
-      {disponibilidad.map((disponibilidad) => (
-        <InventarioCard
-          disponibilidad={disponibilidad}
-          key={disponibilidad.id}
-        />
-      ))}
+    <div className='inventarioContainer'>
+      <h3>Inventario</h3>
+      <hr />
+      <div className='cardsContainer'>
+        {disponibilidad.map((disponibilidad) => (
+          <InventarioCard
+            disponibilidad={disponibilidad}
+            key={disponibilidad.id}
+          />
+        ))}
+      </div>
     </div>
   );
 };

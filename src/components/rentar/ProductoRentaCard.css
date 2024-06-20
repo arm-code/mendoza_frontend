@@ -1,11 +1,11 @@
 .cardRenta {
   border: 1px solid black;
   box-shadow: 5px 5px rgba(1, 1, 1, 1);
-  box-sizing: border-box;
+  
   width: 200px;
-  height: 300px;
-  font-size: 22px;
+  height: 200px;  
   text-align: center;
+  background-color: #f5f2eb;
 }
 
 .partRenta {

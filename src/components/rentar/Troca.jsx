@@ -1,7 +1,8 @@
-import React, { useEffect, useId } from 'react';
+
 import './Troca.css';
 
-export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem }) => {
+export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem, delete1Product, add1Product }) => {
+
   let totalCost = 0;
   inTruck.map((p) => {
     totalCost += parseInt(p.price * p.quantity);
@@ -16,6 +17,8 @@ export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem }) => {
             <th>Cantidad</th>
             <th>Costo</th>
             <th>Monto</th>
+            <th></th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -35,28 +38,50 @@ export const Troca = ({ inTruck, deleteTruck, agendarPedido, deleteItem }) => {
                   ✖
                 </button>
               </td>
+              <td className='buttons'>
+                <button
+                  className='deleteItem'
+                  title='Restar un producto'
+                  onClick={() => delete1Product(p.id)}
+                >
+                  -1
+                </button>
+              </td>
+              <td className='buttons'>
+                <button
+                  className='addItem'
+                  title='Agregar un producto'
+                  onClick={() => add1Product(p.id)}
+                >
+                  +1
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p className='totalCost'>Total a pagar: $ {totalCost}</p>
-      <div className='buttons-container'>
-        <button
-          className='goToRentarButton'
-          disabled={inTruck.length == 0 ? true : false}
-          onClick={agendarPedido}
-        >
-          Proceder con la renta
-        </button>
-        <button
-          className='deleteTrocaButton'
-          disabled={inTruck.length == 0 ? true : false}
-          title='Eliminar todos los productos de la troca'
-          onClick={deleteTruck}
-        >
-          Vaciar troca
-        </button>
-      </div>
+
+      <h3 className='totalCost'>Total a pagar: $ {totalCost}</h3>
+
+      {inTruck.length > 0 && (
+        <div className='buttons-container'>
+          <button
+            className='goToRentarButton'
+            disabled={inTruck.length == 0 ? true : false}
+            onClick={agendarPedido}
+          >
+            Proceder con la renta
+          </button>
+          <button
+            className='deleteTrocaButton'
+            disabled={inTruck.length == 0 ? true : false}
+            title='Eliminar todos los productos de la troca'
+            onClick={deleteTruck}
+          >
+            Vaciar troca
+          </button>
+        </div>
+      )}
     </div>
   );
 };

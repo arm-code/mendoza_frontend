@@ -10,12 +10,11 @@ import { useClient } from '../../hooks/useClient.js';
 export const Rentar = () => {
   const [productos, setProductos] = useState([]);
   const navigate = useNavigate();
-  const {client} = useClient()
-  const { troca, addToTroca, vaciarTroca, deleteItem, Toaster } = useTruck();
+  const { client } = useClient();
+  const { troca, addToTroca, vaciarTroca, deleteItem, delete1Product, add1Product, Toaster } = useTruck();
 
-
-  console.log('client from rentar:', client)
-  console.log('troca: ', troca)
+  console.log('client from rentar:', client);
+  console.log('troca: ', troca);
 
   // cargamos los productos de nuestra API
   useEffect(() => {
@@ -28,13 +27,14 @@ export const Rentar = () => {
 
   const agendarPedido = () => {
     console.log('agendando pedido!!');
-
     navigate('/ordenDeCompra');
   };
 
   return (
     <div className='rentarPage'>
       <Toaster />
+
+      {/* section for the products */}
       <div className='products'>
         {productos.map((p) => (
           <ProductoRentaCard
@@ -44,17 +44,27 @@ export const Rentar = () => {
           />
         ))}
       </div>
+
       <div className='truck'>
-        <p>Cliente: {client.nombreCliente} {client.apellidosCliente}</p>
+        <h3>Productos en la troca...</h3>
+        <hr />
+
+        {client.nombreCliente && (
+          <h3>
+            Cliente: {client.nombreCliente} {client.apellidosCliente}
+          </h3>
+        )}
+
+        <h3>Fecha de entrega: {client.fechaEntrega}</h3>
         <Troca
           inTruck={troca}
           deleteTruck={() => vaciarTroca()}
           deleteItem={deleteItem}
+          delete1Product={delete1Product}
+          add1Product={add1Product}
           agendarPedido={agendarPedido}
         />
       </div>
     </div>
   );
 };
-
-export default Rentar;
