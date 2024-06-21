@@ -8,9 +8,7 @@ export const PedidoCard = ({ pedido }) => {
 
   const onMostrarDetallado = () => {
     setShowDetails(true);
-  };
-
-  console.log('pedido from pedido card: ', pedido);
+  };  
 
   const statusClasses = {
     Generada: 'generated',

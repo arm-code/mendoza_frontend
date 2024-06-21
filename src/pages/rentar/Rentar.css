@@ -7,12 +7,12 @@
 
 .rentarPage {
   width: 100%;
-  padding-top: 150px;
+  padding-top: 80px;
   display: flex;
 }
 
 .products {
-  width: 60%;
+  width: 40%;
   padding: 15px;
   display: flex;
   flex-direction: row;
@@ -22,12 +22,11 @@
 }
 
 .truck {
-  width: 40%;
-  padding: 15px;
-  position: fixed;
-  right: 0;
+  width: 60%;
+  height: auto;
+  padding: 15px;    
   background-color: #f5f2eb;
-  height: 100%;
+  
 }
 
 .truck p{        

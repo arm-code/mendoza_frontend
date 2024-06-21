@@ -1,6 +1,5 @@
 .details {
-  border: 2px solid;
-  border-radius: 15px;
+  border: 2px solid;  
   width: 50%;
   height: 90%;
   background-color: var(--yellow);
@@ -16,7 +15,9 @@
   z-index: 1;
   text-align: center;
   font-size: 22px;
- 
+  overflow: auto;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 .details div{    

@@ -31,8 +31,29 @@ export const TruckProvider = ({ children }) => {
 
   const deleteItem = (idForDelete) => {
     const newTroca = troca.filter((p) => p.id !== idForDelete);
-    console.log('se ha presionado quitar', idForDelete);
     setTroca(newTroca);
+  };
+
+  const delete1Product = (idForDelete) => {
+    // substract 1 product from truck if is already
+    const newTruck = troca.map((p) =>
+      p.id === idForDelete && p.quantity > 1
+        ? { ...p, quantity: p.quantity - 1 }
+        : p
+    );
+
+    setTroca(newTruck);
+  };
+
+  const add1Product = (idForAdd) => {
+    // substract 1 product from truck if is already
+    const newTruck = troca.map((p) =>
+      p.id === idForAdd && p.quantity > 0
+        ? { ...p, quantity: p.quantity + 1 }
+        : p
+    );
+
+    setTroca(newTruck);
   };
 
   return (
@@ -42,6 +63,8 @@ export const TruckProvider = ({ children }) => {
         addToTroca,
         vaciarTroca,
         deleteItem,
+        delete1Product,
+        add1Product,
         Toaster,
       }}
     >

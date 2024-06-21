@@ -1,6 +1,5 @@
 .trocaCart{
-  width: 100%; 
-  font-size: 12px;   
+  width: 100%;   
 }
 
 .deleteItem{  
@@ -9,7 +8,14 @@
   cursor: pointer; 
 }
 
+.addItem{  
+  color: #04ba71;  
+  border: none;
+  cursor: pointer; 
+}
+
 .buttons-container{
+  padding-top: 50px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -19,11 +25,29 @@
 
 
 .deleteTrocaButton{
-  color: #d4320e;
+  background-color: #d4320e;
+  color: #f5f2eb;
   cursor: pointer;
+  font-size: 24px;
 }
 
 .goToRentarButton{
-  color: #04ba71;
+  background-color: #04ba71;
+  color: #f5f2eb;
   cursor: pointer;
+  font-size: 24px;
+}
+
+.deleteTrocaButton:hover{
+  color: #d4320e;
+  background-color: #f5f2eb;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.goToRentarButton:hover{
+  color: #04ba71;
+  background-color: #f5f2eb;
+  cursor: pointer;
+  font-size: 24px;
 }

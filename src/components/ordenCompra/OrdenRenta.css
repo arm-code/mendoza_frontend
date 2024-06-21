@@ -1,12 +1,14 @@
 .orden-compra{
     width: 100%;
-    padding-top: 150px;
+    padding-top: 100px;
     display: flex;
     justify-content: center;
 }
 
-.orden-compra .orden{
-    padding: 0 50px ;    
+.orden{
+    width: 80%;
+    box-sizing: border-box;
+    padding: 15px;  
     background-color: #f5f2eb;
 }
 
@@ -22,9 +24,17 @@
 }
 
 .confirmar-renta{
-    margin-top: 15px;
+    margin-top: 20px;
     margin-bottom: 50px;
-    width: 100%;
-    height: 28px;
-    font-size: 22px;
+    width: 100%;    
+    font-size: 32px;
+    background-color: #04ba71;
+    color: #f5f2eb;
+    border: 1px solid black;
+}
+
+.confirmar-renta:hover{    
+    color: #04ba71;
+    background-color: #f5f2eb;
+    cursor: pointer;
 }

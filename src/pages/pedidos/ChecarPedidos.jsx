@@ -16,7 +16,6 @@ export const ChecarPedidos = () => {
     loadOrder();
   }, []);
 
-  console.log(pedidos);
 
   return (
     <div className='pedidos-container'>

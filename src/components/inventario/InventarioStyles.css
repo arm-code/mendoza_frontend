@@ -1,16 +1,24 @@
-.cardsContainer {
+.inventarioContainer {
+  width: 80%;
+  display: flex;  
+  flex-direction: column;
+  justify-content: center; 
+  background-color: white;
+}
+
+.cardsContainer{
   width: 100%;
+  padding: 15px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .card {
   border: solid black 1px;
   box-shadow: 5px 5px 0px rgba(1, 1, 1, 1);
   box-sizing: border-box;
+  text-align: center;
   width: 200px;
   height: 250px;
   display: flex;
@@ -19,13 +27,8 @@
   align-items: center;
 }
 
-.cardPart1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+.cardPart1 {  
+  width: 100%;  
   height: 50%;
 }
 
@@ -33,10 +36,6 @@
   border-top: 1px solid black;
   width: 100%;
   height: 50%;
-}
-
-.cardPart2 p {
-  margin-bottom: 0;
 }
 
 .qty {
