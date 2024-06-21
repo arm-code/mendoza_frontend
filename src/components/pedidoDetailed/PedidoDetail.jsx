@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './PedidoDetail.css';
 import { getProductos } from '../../api/mobiliario.api';
+import html2canvas from 'html2canvas';
 
 export const PedidoDetail = ({ pedido, setShowDetails }) => {
   const { order_details } = pedido;
+  const divRef = useRef(null);
 
   const [productos, setProductos] = useState([]);
 
@@ -16,31 +18,29 @@ export const PedidoDetail = ({ pedido, setShowDetails }) => {
     loadProductos();
   }, []);
 
-  const findProductNameById = (id) => {
-    const product = productos.find((product) => product.id === id);
-    return product ? product.name : 'not find';
+  const handleDownloadImage = () => {
+    if (divRef.current) {
+      html2canvas(divRef.current, { scrollY: -window.scrollY })
+        .then((canvas) => {
+          const link = document.createElement('a');
+          link.href = canvas.toDataURL('image/png');
+          link.download = 'div_image.png';
+          link.click();
+        })
+        .catch((err) => {
+          console.error('Error generating image:', err);
+        });
+    }
   };
 
-  const allComponents = order_details.flatMap((item) =>
-    item.product.components.map((component) => ({
-      ...component,
-      productName: item.product.name,
-      productPrice: item.price,
-    }))
-  );
-
-  console.log('order: ', order_details);
-
-  console.log('productos: ', productos);
   return (
-    <div className='details'>
-      <div>
-        <h3>Detalles del pedido</h3>
-        <hr />
+    <div ref={divRef} className='details'>
+      <div className='encabezado'>
+        <h4 style={{ margin: 0 }}>Detalles del pedido</h4>
+        <button className='btn-close' onClick={() => setShowDetails(false)}>✖
+        </button>
       </div>
       <div>
-        <p>Vas a cobrar: ${pedido.total}</p>
-
         <table>
           <thead>
             <tr>
@@ -57,19 +57,22 @@ export const PedidoDetail = ({ pedido, setShowDetails }) => {
             ))}
           </tbody>
         </table>
-
-        
       </div>
       <div>
-        <p>Telefono: {pedido.customer.phone}</p>
-        <p>
-          Direccion: {pedido.address.street}, {pedido.address.number},{' '}
+        <p style={{ margin: 0 }}>Telefono: {pedido.customer.phone}</p>
+
+        <p style={{ margin: 0 }}>
+          {' '}
+          Direccion:
+          {pedido.address.street} {pedido.address.number},{' '}
           {pedido.address.colony}
         </p>
+        <p style={{ margin: 0 }}>Vas a cobrar: ${pedido.total}</p>
       </div>
-      <div>
-        <button className='btn-close' onClick={() => setShowDetails(false)}>
-          Cerrar
+      <div className='buttons-contain'>
+        
+        <button className='btn-verde' onClick={handleDownloadImage}>
+          Generar imagen
         </button>
       </div>
     </div>

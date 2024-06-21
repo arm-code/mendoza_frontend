@@ -1,33 +1,49 @@
 .details {
-  border: 2px solid;  
-  width: 50%;
-  height: 90%;
-  background-color: var(--yellow);
-
+  border: 2px solid;
+  width: 70%;
+  height: auto;
+  background-color: var(--white);
+  border-radius: 15px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;  
+  display: flex;  
+  
   flex-direction: column;
   z-index: 1;
   text-align: center;
-  font-size: 22px;
-  overflow: auto;
+  font-size: 22px;  
   padding: 15px;
   box-sizing: border-box;
 }
 
-.details div{    
-    width: 100%;
+.details div {
+  width: 100%;
 }
 
+.btn-close {
+  width: auto;
+  border: none;  
+  color: var(--red-l);
+  font-size: 18px;
+  
+}
 
-.btn-close{
-    width: 50%;
-    height: 100%;    
-    color: var(--red-l);
+.btn-close:hover{
+  cursor: pointer;
+  transform: rotate(45deg);
+}
 
+.btn-verde {
+  width: auto;
+  
+  background-color: var(--green) ;
+  color: var(--white);
+  font-size: 18px;
+}
+
+.encabezado{
+  display: flex;
+  justify-content: space-between;
 }

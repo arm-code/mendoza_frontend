@@ -6,7 +6,7 @@
 }
 
 .pedidos{
-    width: 80%;
+    width: 90%;
     height: 100%;
     padding: 20px;
     background-color: var(--white);
@@ -19,4 +19,9 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+.test td{
+    height: 50px;
+    
 }
