@@ -34,36 +34,31 @@ export const PedidoDetail = ({ pedido, setShowDetails }) => {
   console.log('productos: ', productos);
   return (
     <div className='details'>
-      <table>
-        <thead>
-          <tr>
-            <th>Cantidad</th>
-            <th>Nombre del Pack</th>
-          </tr>
-        </thead>
-        <tbody>
-          {allComponents.map((component, index) => (
-            <tr key={index}>              
-              <td>{component.productPrice}</td>
-              <td>{component.quantity}</td>
-              <td>{findProductNameById(component.product_component)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
       <div>
         <h3>Detalles del pedido</h3>
         <hr />
       </div>
       <div>
         <p>Vas a cobrar: ${pedido.total}</p>
-        {order_details.map((d) => (
-          <div key={d.id}>
-            {d.quantity} {d.product.name}
-          </div>
-        ))}
 
-        <hr />
+        <table>
+          <thead>
+            <tr>
+              <th>Cantidad</th>
+              <th>Producto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {order_details.map((d) => (
+              <tr key={d.id}>
+                <td>{d.quantity} </td>
+                <td>{d.product.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        
       </div>
       <div>
         <p>Telefono: {pedido.customer.phone}</p>
